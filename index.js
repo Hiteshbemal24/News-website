@@ -8,14 +8,12 @@ let searchType = document.getElementById("searchType");
 const getData = async (input) => {
     let response = await fetch(`https://newsapi.org/v2/everything?q=${input}&apiKey=${key}`);
     let jsonData = await response.json();
-    console.log(jsonData.articles);
 
     searchType.innerText = "Search Results : " + input ;
     inputData.value = "";
     cardData.innerHTML = "";
 
     jsonData.articles.forEach(function (article) {
-        console.log(article);
 
         let divs = document.createElement("div");
     divs.classList.add("card");
